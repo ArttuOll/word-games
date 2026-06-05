@@ -5,8 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/a-h/templ"
 	"word-games/cmd/web"
+
+	"github.com/a-h/templ"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -17,8 +18,6 @@ func (s *Server) RegisterRoutes() http.Handler {
 
 	mux.HandleFunc("/health", s.healthHandler)
 
-	fileServer := http.FileServer(http.FS(web.Files))
-	mux.Handle("/assets/", fileServer)
 	mux.Handle("/web", templ.Handler(web.HelloForm()))
 	mux.HandleFunc("/hello", web.HelloWebHandler)
 
