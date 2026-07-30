@@ -16,7 +16,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	// Register routes
 	mux.HandleFunc("/", s.redirectToWordMaster)
 
-	mux.Handle("/word-master", templ.Handler(wordmaster.Base()))
+	mux.Handle("/word-master", templ.Handler(wordmaster.WordMaster()))
 
 	// Wrap the mux with CORS middleware
 	return s.corsMiddleware(mux)
