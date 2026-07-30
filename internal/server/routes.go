@@ -3,6 +3,7 @@ package server
 import (
 	"net/http"
 
+	"word-games/cmd/web"
 	"word-games/cmd/web/wordmaster"
 
 	"github.com/a-h/templ"
@@ -17,7 +18,8 @@ func (s *Server) RegisterRoutes() http.Handler {
 	mux.Handle("/word-master", templ.Handler(wordmaster.WordMaster()))
 
 	// Serve static files
-	mux.Handle("/static/",  http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
+	fileServer := http.FileServer(http.FS(web.Files))
+	mux.Handle("/assets/", fileServer)
 
 	// Wrap the mux with CORS middleware
 	return s.corsMiddleware(mux)
