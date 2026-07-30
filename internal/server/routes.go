@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 
-	"word-games/cmd/web"
 	"word-games/cmd/web/wordmaster"
 
 	"github.com/a-h/templ"
@@ -16,9 +15,6 @@ func (s *Server) RegisterRoutes() http.Handler {
 
 	// Register routes
 	mux.HandleFunc("/", s.redirectToWordMaster)
-
-	mux.Handle("/web", templ.Handler(web.HelloForm()))
-	mux.HandleFunc("/hello", web.HelloWebHandler)
 
 	mux.Handle("/word-master", templ.Handler(wordmaster.Base()))
 
