@@ -1,11 +1,26 @@
 package wordmaster
 
-import "word-games/cmd/web"
-
 templ WordMaster() {
-	@web.Base() {
-		<main>
-			<h1>Sanamestari</h1>
-		</main>
+	@Base() {
+		<h1>Sanamestari</h1>
 	}
+}
+
+templ Base() {
+	<!DOCTYPE html>
+	<html lang="fi">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width,initial-scale=1"/>
+			<title>Sanamestari</title>
+			<link rel="stylesheet" href="/styles/templ.css"/>
+			<link rel="stylesheet" href="/static/wordmaster.css"/>
+			<script src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0-beta4/dist/htmx.min.js" integrity="sha384-aWZK1NtOs/aWb/+YZdTM8q2JkWEshlMc9mgZ189numT9bwFhyAyYEoO4nO/2dTXt" crossorigin="anonymous"></script>
+		</head>
+		<body>
+			<main>
+				{ children... }
+			</main>
+		</body>
+	</html>
 }
