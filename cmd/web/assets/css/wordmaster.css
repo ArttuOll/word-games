@@ -1,8 +1,17 @@
+@font-face {
+  font-display: swap;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/opensans_variable.ttf") format("truetype");
+}
+
 body {
     margin: 0;
 }
 
 main {
+    font-family: "Open Sans";
     display: flex;
     flex-direction: column;
     width: 100%;
