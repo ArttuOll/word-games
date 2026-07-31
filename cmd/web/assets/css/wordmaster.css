@@ -3,7 +3,7 @@
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/opensans_variable.ttf") format("truetype");
+  src: url("../fonts/open-sans-v44-latin-regular.woff2") format("woff2");
 }
 
 body {
