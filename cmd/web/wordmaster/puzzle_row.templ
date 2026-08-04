@@ -1,0 +1,86 @@
+package wordmaster
+
+import "fmt"
+
+func characterName(attemptIndex, characterIndex int) string {
+	return fmt.Sprintf("%v-%v", attemptIndex, characterIndex)
+}
+
+func characterAriaLabel(attemptIndex, characterIndex int) string {
+	return fmt.Sprintf("Rivi %v, kirjain %v", attemptIndex+1, characterIndex+1)
+}
+
+templ PuzzleRow(attemptIndex int) {
+	<ul class="puzzle-row">
+		<li>
+			<input
+				name={ characterName(attemptIndex, 0) }
+				aria-label={ characterAriaLabel(attemptIndex, 0) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+			/>
+		</li>
+		<li>
+			<input
+				name={ characterName(attemptIndex, 1) }
+				aria-label={ characterAriaLabel(attemptIndex, 0) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+			/>
+		</li>
+		<li>
+			<input
+				name={ characterName(attemptIndex, 2) }
+				aria-label={ characterAriaLabel(attemptIndex, 0) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+			/>
+		</li>
+		<li>
+			<input
+				name={ characterName(attemptIndex, 3) }
+				aria-label={ characterAriaLabel(attemptIndex, 0) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+			/>
+		</li>
+		<li>
+			<input
+				name={ characterName(attemptIndex, 4) }
+				aria-label={ characterAriaLabel(attemptIndex, 0) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+			/>
+		</li>
+	</ul>
+}

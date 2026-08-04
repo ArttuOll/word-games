@@ -1,0 +1,29 @@
+package wordmaster
+
+templ Puzzle() {
+	<form>
+		<div class="puzzle-grid">
+			<ul class="puzzle-rows">
+				<li>
+					@PuzzleRow(0)
+				</li>
+				<li>
+					@PuzzleRow(1)
+				</li>
+				<li>
+					@PuzzleRow(2)
+				</li>
+				<li>
+					@PuzzleRow(3)
+				</li>
+				<li>
+					@PuzzleRow(4)
+				</li>
+				<li>
+					@PuzzleRow(5)
+				</li>
+			</ul>
+		</div>
+		<button class="submit-button" type="submit">Tarkista</button>
+	</form>
+}
