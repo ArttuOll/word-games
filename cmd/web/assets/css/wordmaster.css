@@ -157,4 +157,5 @@ form {
     font-weight: bold;
     font-size: 3rem;
     box-shadow: var(--box-shadow);
+    text-transform: uppercase;
 }
