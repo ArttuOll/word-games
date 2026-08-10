@@ -38,6 +38,8 @@ h2 {
 details {
     width: 100%;
     align-self: flex-start;
+    display: flex;
+    flex-direction: column;
 }
 
 summary {
@@ -45,6 +47,7 @@ summary {
     cursor: pointer;
     list-style: none;
     gap: 0.5rem;
+    align-self: center;
 }
 
 form {
@@ -53,6 +56,13 @@ form {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .submit-button {
