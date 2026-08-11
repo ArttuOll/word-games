@@ -1,7 +1,14 @@
 package wordmaster
 
 templ Puzzle() {
-	<form _="init set $guess to '' on submit beep! $guess" onsubmit="event.preventDefault()">
+	<form
+		_="on submit
+			halt the event
+			set $guess to ''
+      		for input in <input/> in me
+        		append input.value to $guess
+          	end"
+	>
 		<div class="puzzle-grid">
 			<ul class="puzzle-rows">
 				<li>
