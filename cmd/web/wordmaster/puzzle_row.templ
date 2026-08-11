@@ -10,7 +10,7 @@ func characterAriaLabel(attemptIndex, characterIndex int) string {
 	return fmt.Sprintf("Rivi %v, kirjain %v", attemptIndex+1, characterIndex+1)
 }
 
-func onKeyDown() string {
+func interactionLogic() string {
 	return `on input
             if my value is not ''
                 focus the next <input/>
@@ -22,7 +22,7 @@ func onKeyDown() string {
 			`
 }
 
-templ PuzzleRow(attemptIndex int) {
+templ PuzzleRow(attemptIndex int, disabled bool) {
 	<ul class="puzzle-row">
 		<li>
 			<input
@@ -36,7 +36,8 @@ templ PuzzleRow(attemptIndex int) {
 				required
 				size="1"
 				pattern="[A-Ö]"
-				_={ onKeyDown() }
+				disabled?={ disabled }
+				_={ interactionLogic() }
 			/>
 		</li>
 		<li>
@@ -51,7 +52,8 @@ templ PuzzleRow(attemptIndex int) {
 				required
 				size="1"
 				pattern="[A-Ö]"
-				_={ onKeyDown() }
+				disabled?={ disabled }
+				_={ interactionLogic() }
 			/>
 		</li>
 		<li>
@@ -66,7 +68,8 @@ templ PuzzleRow(attemptIndex int) {
 				required
 				size="1"
 				pattern="[A-Ö]"
-				_={ onKeyDown() }
+				disabled?={ disabled }
+				_={ interactionLogic() }
 			/>
 		</li>
 		<li>
@@ -81,7 +84,8 @@ templ PuzzleRow(attemptIndex int) {
 				required
 				size="1"
 				pattern="[A-Ö]"
-				_={ onKeyDown() }
+				disabled?={ disabled }
+				_={ interactionLogic() }
 			/>
 		</li>
 		<li>
@@ -96,6 +100,7 @@ templ PuzzleRow(attemptIndex int) {
 				required
 				size="1"
 				pattern="[A-Ö]"
+				disabled?={ disabled }
 				_={ `on input
             			if my value is not ''
                 			focus the next <form button[type='submit']/>

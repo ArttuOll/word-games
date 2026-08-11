@@ -1,26 +1,26 @@
 package wordmaster
 
 templ Puzzle() {
-	<form>
+	<form _="init set $guess to '' on submit beep! $guess" onsubmit="event.preventDefault()">
 		<div class="puzzle-grid">
 			<ul class="puzzle-rows">
 				<li>
-					@PuzzleRow(0)
+					@PuzzleRow(0, false)
 				</li>
 				<li>
-					@PuzzleRow(1)
+					@PuzzleRow(1, true)
 				</li>
 				<li>
-					@PuzzleRow(2)
+					@PuzzleRow(2, true)
 				</li>
 				<li>
-					@PuzzleRow(3)
+					@PuzzleRow(3, true)
 				</li>
 				<li>
-					@PuzzleRow(4)
+					@PuzzleRow(4, true)
 				</li>
 				<li>
-					@PuzzleRow(5)
+					@PuzzleRow(5, true)
 				</li>
 			</ul>
 		</div>
