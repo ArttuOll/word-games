@@ -2,10 +2,6 @@ package wordmaster
 
 import "fmt"
 
-func characterName(attemptIndex, characterIndex int) string {
-	return fmt.Sprintf("%v-%v", attemptIndex, characterIndex)
-}
-
 func characterAriaLabel(attemptIndex, characterIndex int) string {
 	return fmt.Sprintf("Rivi %v, kirjain %v", attemptIndex+1, characterIndex+1)
 }
@@ -26,23 +22,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 	<ul class="puzzle-row">
 		<li>
 			<input
-				name={ characterName(attemptIndex, 0) }
-				aria-label={ characterAriaLabel(attemptIndex, 0) }
-				class="character-box"
-				autocomplete="off"
-				type="text"
-				maxlength="1"
-				minlength="1"
-				required
-				size="1"
-				pattern="[A-Ö]"
-				disabled?={ disabled }
-				_={ interactionLogic() }
-			/>
-		</li>
-		<li>
-			<input
-				name={ characterName(attemptIndex, 1) }
+				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 1) }
 				class="character-box"
 				autocomplete="off"
@@ -58,7 +38,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 		</li>
 		<li>
 			<input
-				name={ characterName(attemptIndex, 2) }
+				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 2) }
 				class="character-box"
 				autocomplete="off"
@@ -74,7 +54,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 		</li>
 		<li>
 			<input
-				name={ characterName(attemptIndex, 3) }
+				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 3) }
 				class="character-box"
 				autocomplete="off"
@@ -90,8 +70,24 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 		</li>
 		<li>
 			<input
-				name={ characterName(attemptIndex, 4) }
+				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 4) }
+				class="character-box"
+				autocomplete="off"
+				type="text"
+				maxlength="1"
+				minlength="1"
+				required
+				size="1"
+				pattern="[A-Ö]"
+				disabled?={ disabled }
+				_={ interactionLogic() }
+			/>
+		</li>
+		<li>
+			<input
+				name="guess"
+				aria-label={ characterAriaLabel(attemptIndex, 5) }
 				class="character-box"
 				autocomplete="off"
 				type="text"

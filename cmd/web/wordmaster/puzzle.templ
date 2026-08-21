@@ -2,12 +2,9 @@ package wordmaster
 
 templ Puzzle() {
 	<form
-		_="on submit
-			halt the event
-			set $guess to ''
-      		for input in <input/> in me
-        		append input.value to $guess
-          	end"
+		action="/guess"
+		method="POST"
+		hx-post="/guess"
 	>
 		<div class="puzzle-grid">
 			<ul class="puzzle-rows">

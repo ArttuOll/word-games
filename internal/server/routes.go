@@ -15,7 +15,9 @@ func (s *Server) RegisterRoutes() http.Handler {
 	// Register routes
 	mux.HandleFunc("/", s.redirectToWordMaster)
 
+	// Word Master
 	mux.Handle("/word-master", templ.Handler(wordmaster.WordMaster()))
+	mux.HandleFunc("POST /guess", wordmaster.GuessHandler)
 
 	// Serve static files
 	fileServer := http.FileServer(http.FS(web.Files))
