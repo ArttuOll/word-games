@@ -16,6 +16,9 @@ func GuessHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("Received guess: ", guess)
 
+	solution, err := r.Cookie("solution")
+	fmt.Println("Solution is: ", solution)
+
 	// name := r.FormValue("name")
 	// component := HelloPost(name)
 	// err = component.Render(r.Context(), w)

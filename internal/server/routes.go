@@ -5,8 +5,6 @@ import (
 
 	"word-games/cmd/web"
 	"word-games/cmd/web/wordmaster"
-
-	"github.com/a-h/templ"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -16,7 +14,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	mux.HandleFunc("/", s.redirectToWordMaster)
 
 	// Word Master
-	mux.Handle("/word-master", templ.Handler(wordmaster.WordMaster()))
+	mux.HandleFunc("/word-master", wordmaster.WordMasterHandler)
 	mux.HandleFunc("POST /guess", wordmaster.GuessHandler)
 
 	// Serve static files
