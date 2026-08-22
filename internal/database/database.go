@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"time"
+	"word-games/internal/database/repository"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	_ "github.com/joho/godotenv/autoload"
@@ -22,10 +23,13 @@ type Service interface {
 	// Close terminates the database connection.
 	// It returns an error if the connection cannot be closed.
 	Close() error
+
+	Queries() *repository.Queries
 }
 
 type service struct {
 	db *sql.DB
+	queries *repository.Queries
 }
 
 var (
@@ -50,6 +54,7 @@ func New() Service {
 	}
 	dbInstance = &service{
 		db: db,
+		queries: repository.New(db),
 	}
 	return dbInstance
 }
@@ -112,4 +117,8 @@ func (s *service) Health() map[string]string {
 func (s *service) Close() error {
 	log.Printf("Disconnected from database: %s", database)
 	return s.db.Close()
+}
+
+func (s *service) Queries() *repository.Queries {
+	return s.queries
 }
