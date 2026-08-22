@@ -9,12 +9,11 @@ import (
 
 func (s *Server) RegisterRoutes() http.Handler {
 	mux := http.NewServeMux()
-
 	// Register routes
 	mux.HandleFunc("/", s.redirectToWordMaster)
 
 	// Word Master
-	mux.HandleFunc("/word-master", wordmaster.WordMasterHandler)
+	mux.HandleFunc("/word-master", wordmaster.WordMasterHandler(s.db))
 	mux.HandleFunc("POST /guess", wordmaster.GuessHandler)
 
 	// Serve static files
