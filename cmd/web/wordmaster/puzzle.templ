@@ -5,26 +5,27 @@ templ Puzzle() {
 		action="/guess"
 		method="POST"
 		hx-post="/guess"
+		hx-target=""
 	>
 		<div class="puzzle-grid">
 			<ul class="puzzle-rows">
 				<li>
-					@PuzzleRow(0, false)
+					@PuzzleRow(0, false, []Color{})
 				</li>
 				<li>
-					@PuzzleRow(1, true)
+					@PuzzleRow(1, true, []Color{})
 				</li>
 				<li>
-					@PuzzleRow(2, true)
+					@PuzzleRow(2, true, []Color{})
 				</li>
 				<li>
-					@PuzzleRow(3, true)
+					@PuzzleRow(3, true, []Color{})
 				</li>
 				<li>
-					@PuzzleRow(4, true)
+					@PuzzleRow(4, true, []Color{})
 				</li>
 				<li>
-					@PuzzleRow(5, true)
+					@PuzzleRow(5, true, []Color{})
 				</li>
 			</ul>
 		</div>

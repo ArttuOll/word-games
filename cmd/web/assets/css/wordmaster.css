@@ -77,15 +77,15 @@ form {
     transition-property: color, background-color, border-color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 100ms;
-    border: 1px solid rgb(127,29,29);
-    background-color: rgb(220,38,38);
+    border: 1px solid rgb(127, 29, 29);
+    background-color: rgb(220, 38, 38);
 
     &:hover {
-        background-color: rgb(153,27,27);
+        background-color: rgb(153, 27, 27);
     }
 
     &:focus {
-        background-color: rgb(185,28,28);
+        background-color: rgb(185, 28, 28);
     }
 }
 
@@ -158,4 +158,20 @@ form {
     font-size: 3rem;
     box-shadow: var(--box-shadow);
     text-transform: uppercase;
+
+    &.white {
+        background-color: white;
+    }
+
+    &.yellow {
+        background-color: yellow;
+    }
+
+    &.green {
+        background-color: green;
+    }
+
+    &.gray {
+        background-color: gray;
+    }
 }

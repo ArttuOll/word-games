@@ -3,6 +3,7 @@ package wordmaster
 import (
 	"log"
 	"net/http"
+	"word-games/cmd/web/wordmaster/gamestate"
 	"word-games/internal/database"
 )
 
@@ -14,10 +15,7 @@ func WordMasterHandler(db database.Service) http.HandlerFunc {
 			http.Error(w, "Error fetching puzzle solution", http.StatusInternalServerError)
 			log.Printf("Error fetching puzzle solution: %e", err)
 		} else {
-			http.SetCookie(w, &http.Cookie{
-				Name:  "solution",
-				Value: solution.Name,
-			})
+			gamestate.UpdateGameState(1, solution.Name, w)
 		}
 
 		component := WordMaster()

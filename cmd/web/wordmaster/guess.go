@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"slices"
 	"strings"
+	"word-games/cmd/web/wordmaster/gamestate"
 )
 
 func GuessHandler(w http.ResponseWriter, r *http.Request) {
@@ -17,13 +18,16 @@ func GuessHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("Received guess: ", guess)
 
-	solution, err := r.Cookie("solution")
-	fmt.Println("Solution is: ", solution.Value)
+	gs := gamestate.ReadGameState(r)
 
-	colors := getColorsForWord(strings.ToLower(guess), strings.ToLower(solution.Value))
+	fmt.Println("Solution is: ", gs.Solution)
+	fmt.Println("Attempt number: ", gs.Attempt)
+
+	colors := getColorsForWord(strings.ToLower(guess), strings.ToLower(gs.Solution))
 
 	fmt.Printf("Colors are: %v\n", colors)
 
+	gamestate.UpdateGameState(gs.Attempt+1, gs.Solution, w)
 	// name := r.FormValue("name")
 	// component := HelloPost(name)
 	// err = component.Render(r.Context(), w)

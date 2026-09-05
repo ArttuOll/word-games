@@ -1,6 +1,7 @@
 package wordmaster
 
 import "fmt"
+import "strconv"
 
 func characterAriaLabel(attemptIndex, characterIndex int) string {
 	return fmt.Sprintf("Rivi %v, kirjain %v", attemptIndex+1, characterIndex+1)
@@ -18,13 +19,25 @@ func interactionLogic() string {
 			`
 }
 
-templ PuzzleRow(attemptIndex int, disabled bool) {
-	<ul class="puzzle-row">
+func getRowColor(i int, colors []Color, disabled bool) string {
+	if disabled {
+		return "lightgray"
+	}
+
+	if len(colors) > i {
+		return colors[i]
+	}
+
+	return "white"
+}
+
+templ PuzzleRow(attemptIndex int, disabled bool, colors []Color) {
+	<ul class="puzzle-row" id={ "row-" + strconv.Itoa(attemptIndex) }>
 		<li>
 			<input
 				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 1) }
-				class="character-box"
+				class={ "character-box" + " " + getRowColor(0, colors, disabled) }
 				autocomplete="off"
 				type="text"
 				maxlength="1"
@@ -40,7 +53,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 			<input
 				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 2) }
-				class="character-box"
+				class={ "character-box" + " " + getRowColor(1, colors, disabled) }
 				autocomplete="off"
 				type="text"
 				maxlength="1"
@@ -56,7 +69,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 			<input
 				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 3) }
-				class="character-box"
+				class={ "character-box" + " " + getRowColor(2, colors, disabled) }
 				autocomplete="off"
 				type="text"
 				maxlength="1"
@@ -72,7 +85,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 			<input
 				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 4) }
-				class="character-box"
+				class={ "character-box" + " " + getRowColor(3, colors, disabled) }
 				autocomplete="off"
 				type="text"
 				maxlength="1"
@@ -88,7 +101,7 @@ templ PuzzleRow(attemptIndex int, disabled bool) {
 			<input
 				name="guess"
 				aria-label={ characterAriaLabel(attemptIndex, 5) }
-				class="character-box"
+				class={ "character-box" + " " + getRowColor(4, colors, disabled) }
 				autocomplete="off"
 				type="text"
 				maxlength="1"
