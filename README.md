@@ -1,6 +1,8 @@
-# Project word-games
+# Word-games
 
-One Paragraph of project description goes here
+This application will contain 2 word games that I play every morning with my spouse: Sanamestari & Sanalouhos.
+
+Implemented with Go & HTMX.
 
 ## Getting Started
 
